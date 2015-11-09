@@ -1,0 +1,152 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
+using System.Windows.Forms;
+using System.Collections;
+
+namespace seating
+{
+    public partial class frmSeatingChart : Form
+    {
+        //declare hashtables
+        private Hashtable HtBits2Seats;
+        private Hashtable HtSeats2Bits;
+        private BitArray ArrSeatAvailability;
+        private SeatNumbers seatNums;
+
+        //accessors
+        #region
+        Hashtable htBits2Seats
+        {
+            set
+            {
+                this.HtBits2Seats = value;
+            }
+
+            get
+            {
+                return this.HtBits2Seats;
+            }
+        }
+
+        Hashtable htSeats2Bits
+        {
+            set
+            {
+                this.HtSeats2Bits = value;
+            }
+
+            get
+            {
+                return this.HtSeats2Bits;
+            }
+        }
+
+        BitArray arrSeatAvailability
+        {
+            set
+            {
+                this.ArrSeatAvailability = value;
+            }
+
+            get
+            {
+                return this.ArrSeatAvailability;
+            }
+        }
+        #endregion
+
+        //constructor
+        public frmSeatingChart()
+        {
+            InitializeComponent();
+        }//end constructor
+
+        private void frmSeatingChart_Load(object sender, EventArgs e)
+        {
+            //initialize hashtables
+            htBits2Seats = new Hashtable(642);
+            htSeats2Bits = new Hashtable(642);
+
+            //initialize bitArray
+            BitArray seatAvailability = new BitArray(642);
+
+            //initialize seat numbers
+            seatNums = new SeatNumbers();
+
+            populateTables();
+            setHandicappedSeating();
+        }//end form load
+
+        //method for buttonclick event
+        private void seatButton_Click(object sender, EventArgs e)
+        {
+            //convert sender to Button
+            Button btnSeatClicked = (Button)sender;
+
+            //grab relevant seat object from hashtable
+            Seat thisSeat = (Seat)this.htSeats2Bits[btnSeatClicked.Text];
+
+            //create new form
+            frmSeatInfo seatInfo = new frmSeatInfo(this.imgSeatImages, thisSeat);
+
+            //display form
+            seatInfo.Show();
+
+          //  //TEMP
+          // // MessageBox.Show(thisSeat.SeatNum);
+          ////  MessageBox.Show(thisSeat.ArrayIndex.ToString());
+
+          //  if (thisSeat.Reserved == true)
+          //  {
+          //      btnSeatClicked.ImageIndex = 1;
+          //      thisSeat.Reserved = false;
+          //  }//TEMP
+
+          //  else if (thisSeat.Reserved == false)
+          //  {
+          //      btnSeatClicked.ImageIndex = 0;
+          //      thisSeat.Reserved = true;
+          //  }//TEMP
+
+          //  if (thisSeat.Handicapped == true)
+          //  {
+          //      MessageBox.Show("Handicapped true");
+          //  }//TEMP
+            
+        }//end seatButton_Click
+
+        private void populateTables()
+        {
+            //populate hashtables
+            for (int i = 0; i < seatNums.seatNums.Length; i++)
+            {
+                //create new object for the seat
+                Seat seat = new Seat(seatNums.seatNums[i], i);
+
+                //add seat to hashtables
+                this.htBits2Seats.Add(i, seatNums.seatNums[i]);
+                this.htSeats2Bits.Add(seatNums.seatNums[i], seat);
+            }//end popluate for
+        }//end populateTables
+
+        private void setHandicappedSeating()
+        {
+            //flag handicapped seats
+            for (int i = 0; i < seatNums.handicappedSeats.Length; i++)
+            {
+                //store seat from hashtable
+                Seat seat = (Seat)htSeats2Bits[seatNums.handicappedSeats[i]];
+
+                //modify handicaped property
+                seat.Handicapped = true;
+
+                //put that seat back in hashtable
+                htSeats2Bits[seatNums.handicappedSeats[i]] = seat;
+            }//end popluate for
+        }//end setHandicappedSeating
+    }//end class
+}//end namespace

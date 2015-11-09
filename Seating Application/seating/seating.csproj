@@ -1,0 +1,172 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BFDA26DB-FBC6-4271-BD56-DAA6934764AF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>seating</RootNamespace>
+    <AssemblyName>tickets</AssemblyName>
+    <ApplicationIcon>yohan.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAbout.Designer.cs">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInitialPrompt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInitialPrompt.Designer.cs">
+      <DependentUpon>frmInitialPrompt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNumberNightsPrompt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNumberNightsPrompt.Designer.cs">
+      <DependentUpon>frmNumberNightsPrompt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReservedSeats.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReservedSeats.Designer.cs">
+      <DependentUpon>frmReservedSeats.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReserveTickets.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReserveTickets.Designer.cs">
+      <DependentUpon>frmReserveTickets.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSeatInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSeatInfo.Designer.cs">
+      <DependentUpon>frmSeatInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSeatingChart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSeatingChart.Designer.cs">
+      <DependentUpon>frmSeatingChart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmShowStats.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmShowStats.Designer.cs">
+      <DependentUpon>frmShowStats.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Night.cs" />
+    <Compile Include="NightlySum.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAbout.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInitialPrompt.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmInitialPrompt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNumberNightsPrompt.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmNumberNightsPrompt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReservedSeats.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmReservedSeats.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReserveTickets.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmReserveTickets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSeatInfo.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmSeatInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSeatingChart.resx">
+      <DependentUpon>frmSeatingChart.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmShowStats.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmShowStats.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTicketInfo.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmTicketInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Seat.cs" />
+    <Compile Include="SeatNumbers.cs" />
+    <Compile Include="aShow.cs" />
+    <Compile Include="SerializeObject.cs" />
+    <Compile Include="Ticket.cs" />
+    <Compile Include="frmTicketInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTicketInfo.Designer.cs">
+      <DependentUpon>frmTicketInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TicketSums.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="yohan.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

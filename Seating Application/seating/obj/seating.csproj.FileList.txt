@@ -1,0 +1,16 @@
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\seating.Properties.Resources.resources
+obj\Debug\seating.csproj.GenerateResource.Cache
+obj\Debug\seating.frmSeatingChart.resources
+obj\Debug\seating.frmSeatInfo.resources
+obj\Debug\seating.frmInitialPrompt.resources
+obj\Debug\seating.frmNumberNightsPrompt.resources
+obj\Debug\seating.frmTicketInfo.resources
+obj\Debug\seating.frmShowStats.resources
+obj\Debug\seating.frmAbout.resources
+obj\Debug\seating.frmReserveTickets.resources
+bin\Debug\tickets.exe
+bin\Debug\tickets.pdb
+obj\Debug\tickets.exe
+obj\Debug\tickets.pdb
+obj\Debug\seating.frmReservedSeats.resources
